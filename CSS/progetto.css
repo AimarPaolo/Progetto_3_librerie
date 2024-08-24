@@ -1,0 +1,593 @@
+.navbar {
+    overflow: hidden;
+    /*utilizzo colori che possono essere in palette con la montagna, ad esempio verde, marrone e verde pino */
+    background-color: #2a5e92;
+    font-family: Arial, sans-serif;
+    /*faccio in modo che il navbar occupi tutta la riga, per evitare che si sovrapponga con altri contenuti*/
+    width: 100%;
+    margin-bottom: 3rem;
+}
+  
+.navbar a {
+    float: left;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration: none;
+}
+.navbar a:hover{
+    background-color: rgb(25, 53, 80);
+    transition: 0.5s;
+    /*aggiungo anche in questo caso border color in modo da far colorare anche il bordo quando viene selezionato*/
+    border-color:  rgb(25, 53, 80);
+    color:white;
+}
+
+main{
+    /*aggiungo un margine al main per evitare che parti di testo rimangano attaccate ai bordi*/
+    margin:2rem;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    /*imposto subito il font come sans-serif per non affaticare la vista all'utente, nel caso di stampa dovrò poi cambiare il 
+    font inserendo invece il serif*/
+    font-family: "Helvetica Neue", Verdana, sans-serif;
+    /*imposto a zero il margine così che il footer e la navbar rimangano attaccate al bordo.*/ 
+    margin: 0;
+    /*aggiungo del padding al fondo per evitare che del contenuto si sovrapponga al footer*/
+    padding-bottom: 5rem;
+}
+
+
+/*utilizzando input type=text o date posso cambiare tutti i bottoni e i cambi che hanno quel determinato type*/
+input[type=text], input[type=password], input[type=date], input[type=datetime-local] {
+    width: 100%;
+    padding: 0.7rem 1.25rem;
+    /*inserisco poco margine bottom in modo che la linea guida per l'inserimento dell'input non si stacchi di molto*/
+    margin: 1rem 1rem 0rem;
+    display: inline;
+    /*utilizzo la forma compatta per dichiarare il bordo degli input. [spessore, stile e colore]*/
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.guida{
+    /*in questo caso mi creo dei piccoli avvisi che aiutano l'utente ad inserire correttamente il campo, li rendo opachi perchè
+    non voglio dargli troppa importanza, devono essere solo delle linee guida*/
+    color:grey;
+    opacity: 0.7;
+    font-size: 0.5rem;
+    /*non voglio staccarli troppo dal campo di input per far capire che sono effettivamente riferiti a quello*/
+    margin-top: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+h1{
+    color: rgb(6, 19, 94);
+    font-size:1rem;
+    /*inserisco un margine sinistro e destro per evitare che nella pagina scrivi.php il bordo dei si attacchi al titolo*/
+    margin: 1rem 2rem 1rem 2rem;
+}
+
+/*faccio cambiare il colore anche del bordo quando passo sopra ad un determinato campo*/
+input[type=text]:hover, input[type=password]:hover, input[type=date]:hover {
+    border-color:rgb(13, 29, 58);
+    /*ho provato a far cambiare anche lo spessore però non rimane un buon risultato, in quando i bordi, giustamente, occupano una 
+    parte della pagina e spostano i campi creando un effetto non piacevole e poco controllato*/
+}
+
+.bottoni{
+    justify-content: left;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.3125rem;
+    /*utilizzando il pointer rendo l'utente consapevole di essere sopra un qualcosa che è possibile selezionare*/
+    cursor: pointer;
+    background-color: #122644; 
+    color: white;
+    /*inserisco una transizione per far cambiare il colore in modo uniforme --> 0.5 è quella che forse è più
+    utile e ideale, tempi superiori sarebbero esagerati mentre inferiori sono poco percepibili*/
+    transition: 0.5s;
+    margin: auto;
+    /*inserisco questo margin per staccare i bottoni di login e cancella quando viene ripiggiolita la finestra*/
+    margin-top: 1rem;
+}
+
+/*per i bottoni, faccio cambiare il colore quando si passa sopra con il mouse per rendere più visibile e più intuitivo il sito
+agli utenti*/
+.bottoni:hover{
+    background-color: rgb(18, 61, 117);
+}
+
+.content{
+    /*se il testo esce dalla box viene nascosto*/
+    overflow: hidden;
+    box-shadow: 0.25rem 0.25rem 0.25rem 0.25rem rgba(6, 57, 116, 0.575);
+    padding: 2rem 8rem;
+    width: 30%;
+    height: 50%;
+    border-radius: 2rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 3rem;
+    /*inserisco una dimensione minima per evitare che si deformi*/
+    min-width: 50%;
+}
+.content_login{
+    overflow: hidden;
+    box-shadow: 0.25rem 0.25rem 0.25rem 0.25rem rgba(6, 57, 116, 0.575);
+    padding: 2rem 8rem;
+    width: 30%;
+    height: 50%;
+    border-radius: 2rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.lastBtn{
+    /*cerco di staccare il navbar dal content*/
+    margin-top: 1.5rem;
+}
+
+.segnalaErrore{
+    color: red;
+    font-size: small;
+    text-align: left;
+    display: block;
+}
+
+footer {
+    /*inserisco un opacity per non trascurare troppo il testo dietro*/
+    /*opacity: 0.5;*/
+    background-color:#1b60a5;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    /*in questo caso specifico di volere il font normale e non in grassetto solo nel caso del footer, dato che il CSS prende in
+    considerazione solo la grafica più specifica, eliminerà il testo in grassetto*/
+    /*font-weight:normal; --> prima avevo impostato font-weight:bold nel caso in cui si trattasse di un link. Eliminato in quanto
+    non era bellissimo esteticamente*/
+}
+  
+footer a:hover {
+    color: #ddd;
+}
+
+a{
+    color: #090b53;
+}
+
+a:hover{
+    /*poco percepibile il cambiamento di colore ma non volevo che risultasse troppo diverso*/
+    color: #160ca5;
+    transition: 0.5s;
+}
+
+.pagina{
+    margin: 2rem;
+}
+
+.disabilitata{
+    background-color:rgb(171, 213, 247);
+    opacity:0.5;
+}
+/*creo una classe apposta per indicare in quale pagina mi trovo in quel momento, in modo da aiutare l'utente a capirlo*/
+#attiva{
+    /*si poteva utilizzare anche un bordo per indicare la classe attiva, però andava a sballare tutto il navbar in quando il bordo
+    iniziava poi ad occupare uno spazio che prima non occupava (parecchio complicato da sistemare)*/
+    background-color: rgb(27, 35, 83);
+}
+
+.bodyErrato{
+    /*imposto dei margini per renderlo leggermente più bello*/
+    margin:2rem;
+}
+.successo{
+    color: rgba(4, 100, 33, 0.993);
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tweet_cornice{
+    border-style:dashed;
+    border-radius: 1rem;
+    border-width: 0.25rem;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    border-color: rgb(28, 30, 65);
+    margin-bottom: 2rem;
+    width: max-content;
+}
+.parte_tweet{
+    float: left;
+    border: 1rem;
+    margin:1rem;
+}
+.tweet{
+    /*faccio in modo che ogni tweet vada a capo ma che ogni parte del tweet stia sulla stessa riga*/
+    clear: both;
+    display: inline-block;
+    /*per il momento è troppo simile a twitte o facebook, forse è meglio utilizzare un altra palette di colori*/
+    background-color: rgb(178, 168, 236);
+    border-radius: 3rem;
+    margin: 1rem;
+    border-style: solid;
+    border-color:rgb(11, 5, 56);
+}
+.titolo_grassetto{
+    font-weight: bold;
+    color:#122644;
+}
+
+.new_tweet{
+    border-style: solid;
+    border-width: 0.5rem;
+    border-color:#122644;
+    margin: auto;
+    align-content: center;
+    width: fit-content;
+    text-align: center;
+    /*stacco il bordo del tweet con il footer*/
+    margin-bottom: 2rem;
+    background-color: rgb(178, 186, 255);
+}
+/*faccio in modo che l'utente non possa modificare la grandezza della text area in quanto
+potrebbe modificare in maniera non voluta la grafica.*/
+#testo{
+    display: block;
+    clear:both;
+    width: 15rem;
+    height: 15rem;
+    resize:none;
+    border-width: medium;
+    border-color: rgb(76, 50, 150);
+    margin: auto;
+    color:#3f77f1
+}
+/*in questo caso aggiungo display block per staccarlo dalla line guida ed un margin-bottom*/
+.bottoni_scrivi{
+    justify-content: left;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.3125rem;
+    /*utilizzando il pointer rendo l'utente consapevole di essere sopra un qualcosa che è possibile selezionare*/
+    cursor: pointer;
+    background-color: #122644; 
+    color: white;
+    /*inserisco una transizione per far cambiare il colore in modo uniforme --> 0.5 è quella che forse è più
+    utile e ideale, tempi superiori sarebbero esagerati mentre inferiori sono poco percepibili*/
+    transition: 0.5s;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+.new_tweet img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin: 1rem 0 1rem 0;
+}
+/*in questo caso cambio il colore della guida perchè non si riesce a leggere in modo appropriato con il colore dello sfondo inserito*/
+.guida_scrivi{
+    color:rgb(14, 28, 155);
+    opacity: 0.7;
+    font-size: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.bottoni_scrivi:hover{
+    background-color: rgb(18, 61, 117);
+}
+
+.indicazione{
+    margin-left: 2rem;
+    border-width: 0.25rem;
+    border-radius: 1rem;
+    background-color: #071a36;
+    border-color:rgb(43, 58, 105);
+    display: block;
+    border-style: solid;
+    width: fit-content;
+    margin-bottom: 2rem;
+}
+
+.bordo{
+    margin: 1rem;
+}
+
+#pagina_logout{
+    text-align: center;
+    margin-top: 4rem;
+}
+
+#richiesta{
+    color: rgb(38, 47, 133);
+    font-weight: bold;
+}
+
+.titolo{
+    font-weight: bold;
+    color: white;
+}
+
+.captation{
+    color: grey;
+}
+.parte_tweet_bacheca{
+    float: left;
+    border: 1rem;
+    margin:1rem;
+}
+.tweet_bacheca{
+    /*faccio in modo che ogni tweet vada a capo ma che ogni parte del tweet stia sulla stessa riga*/
+    clear: both;
+    display: inline-block;
+    /*per il momento è troppo simile a twitte o facebook, forse è meglio utilizzare un altra palette di colori*/
+    background-color: rgb(112, 188, 238);
+    /*cambio leggermente la grafica facendo un bordo non arrotondato, prendendo spunto dalla grafica dei messaggi di whatsapp*/
+    border-radius:0 3rem 3rem 3rem;
+    margin: 1rem;
+    border-style: solid;
+    border-color:rgba(55, 17, 196, 0.575);
+}
+.titolo_grassetto_bacheca{
+    font-weight: bold;
+    color:#122644;
+}
+/*obbligato ad eliminare l'immagine di sfondo perchè distoglieva l'attenzione, cerco di migliorare la grafica in altri modi*/
+/*
+#body_home{
+    background-image: url("../Immagini/immagine_tornado_pattern.jpg");
+    background-size: 5rem;
+    background-repeat: repeat;
+    opacity:0.6
+}*/
+
+.aggiungi_tweet{
+    font-size: 1rem;
+    color: #4692df;
+    /*lo scrivo in grassetto per mostrare meglio il messaggio ed invogliare l'utente a scrivere qualcosa*/
+    font-weight: bold;
+}
+
+label{
+    color:#090b53;
+}
+
+#form_bacheca{
+    width: 50%;
+    margin: auto;
+}
+
+.centra_iframe{
+    width: 50%;
+    margin:auto;
+    margin-bottom: 0.5rem;
+}
+
+iframe{
+    border-width: 0.25rem;
+    border-color: #090b53;
+    display: block;
+    margin: 0 auto;
+}
+
+.informazioni{
+    display:block;
+    margin-top: 1rem;
+}
+
+#body_home{
+    background-color: #e3f6fc
+}
+
+.messaggio_no_stampa{
+    display: none;
+}
+
+#bottone_tornaSu{
+    position: fixed;
+    bottom: 7rem;
+    right: 2rem;
+    background-color: #063d74;
+}
+#bottone_tornaSu:hover{
+    position: fixed;
+    bottom: 7rem;
+    right: 2rem;
+    color:white;
+    background-color: #171830;
+}
+
+/*grandezza per i dispositivi tablet*/
+/*non inserisco anche l'altezza massima perchè i dati si dispongono in maniera ordinata*/
+@media screen and (max-width: 768px) {
+    .navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .content, .content_login {
+        padding: 1rem 4rem;
+        width: 80%;
+        min-width: 80%;
+    }
+
+    .new_tweet, .tweet_cornice {
+        width: 90%;
+    }
+
+    #testo {
+        /*in questo caso */
+        width: 80%;
+        height: 10rem;
+    }
+    .messaggio_no_stampa{
+        display: none;
+    }
+}  
+
+/*scrivo una media query per i telefoni, in questo caso posso specificare la grandezza in pixel*/
+/*grandezza per i dispositivi mobile*/
+@media screen and (max-width: 480px) {
+    .navbar a {
+        /*faccio in modo che il navbar si rimpicciolisca e che si adatti alla pagina (una parte del navbar su ogni riga)*/
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .content, .content_login {
+        padding: 1rem;
+        width: 100%;
+        min-width: 100%;
+        margin:auto;
+    }
+    /*rimpicciolisco la grandezza dei form in modo che non sforino fuori dalla pagina, ho aggiunto anche un width 100% nel navbar
+    in modo tale che riesca ad occupare tutta la larghezza e non rimangano spazi bianchi*/
+    input[type=password],input[type=date], input[type=text]{
+        width: 10rem;
+        margin-right: 3rem;
+        padding: 0.7rem 1.25rem;
+        /*inserisco poco margine bottom in modo che la linea guida per l'inserimento dell'input non si stacchi di molto*/
+        margin: 1rem 1rem 0rem;
+        /*utilizzo la forma compatta per dichiarare il bordo degli input. [spessore, stile e colore]*/
+        border: 0.0625rem solid #ccc;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        display: block;
+        margin:auto;
+    }
+    .new_tweet, .tweet_cornice {
+        width: 100%;
+        margin: auto;
+    }
+    /*il form per inserire il testo da pubblicare risulta anche troppo grande da telefono, rimpicciolisco pure quello*/
+    #testo {
+        width: 50%;
+        height: 10rem;
+        margin: auto;
+    }
+
+    .centra_iframe{
+        margin:auto;
+        /*inserisco un margin left di 0 perchè il video risultava scentrato in maniera grossolana nella versione per telefono.*/
+        margin-left: 0;
+    }
+    /*lo inserisco anche sul telefono in quando non voglio che si veda questo messaggio*/
+    .messaggio_no_stampa{
+        display: none;
+    }
+}
+
+@media print {
+    /*elimino tutti i dati che non sono importanti o che peggiorerebbero le qualità della stampa (ad esempio tutti i dati 
+    che devono avere dei dati in input dall'utente. Non ha senso tenerli per la stampa, risulterebbero inutili).*/
+    /*basandomi sulle slide di di progettazione printer friendly (slide 11-14) elimino il navbar*/
+    .navbar, footer, .content_login, .indicazione, .bottoni_scrivi, .bottoni, .centra_iframe, iframe, .content, .campo, .guida, .segnalaErrore, .captation {
+        display: none;
+    }
+    /*imposto il font serif per migliorare la lettura dei dati su stampa. Mentre prima non era importante e si rischiava 
+    di affaticare la vista dell'utente ora invece migliora la qualità di lettura e di stampa
+    */
+    body {
+        font-family: serif;
+        margin: 0;
+        padding: 1rem;
+        background-color: white;
+    }
+
+    /*elimino i messaggi di errore presenti nelle pagine perchè non sono utili per la stampa*/
+    .successo, .segnalaErrore{
+        display: none;
+    }
+
+    .tweet, .parte_tweet, .parte_tweet_bacheca, .tweet_bacheca{
+        color:#000;
+        border-color: #000;
+    }
+    main {
+        margin: 0;
+    }
+    /*imposto tutti i colori della stampante in bianco e nero per permettere a chiunque di stampare il sito (non tutti hanno la
+    possibilità di stampare a colori).*/
+    h1 {
+        color: black;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    /*in questo caso, anche se è possibile utilizzare i px  (circa 12 px) ho deciso di lasciare le misure in rem, per mantenere 
+    il codice uniforme (ho effettuato una conversione del font da 12 px a circa 1 rem)*/
+    p, label {
+        color: black;
+        font-size: 0.75rem;
+        margin: 0.5rem 0;
+    }
+    img{
+        display: none;
+    }
+
+    /*cancello per sicurezza tutti i form (anche se ne ho già eliminati in parte cancellando il .content)*/
+    form{
+        display: none;
+    }
+
+    .titolo_grassetto, .titolo_grassetto_bacheca {
+        color: black;
+        font-weight: bold;
+    }
+
+    .successo {
+        color: black;
+        margin: 1rem 0;
+    }
+
+    .pagina {
+        margin: 1rem 0;
+    }
+
+    #testo {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+        border: 0.0625rem solid #000;
+    }
+    .messaggio_no_stampa{
+        display: block;
+    }
+    /*la pagina di logout presenta pochi elementi da stampare ma è possibile lasciarla anche così*/
+}
